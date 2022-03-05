@@ -17,9 +17,13 @@ export class WebPage {
         cy.get('[data-testid=add-employee-menu]', { timeout: 6000 }).click()
         cy.contains('CREATE NEW').click()
         cy.get('.css-7406fh')
+        cy.wait(2000)
         cy.get('.css-tlfecz-indicatorContainer', { timeout: 5000 }).click({ timeout: 2000 }).type('Egypt{enter}')
-        cy.scrollTo('bottom')
-        cy.get('#cy.scrollTo(0, 500)').click()
+        cy.wait(2000)
+        cy.get('input[name="select-country"]').should('have.value', 'EG')
+        cy.get('#onboarding-get-started-btn').click({ force: true })
+
     }
+
 
 }
